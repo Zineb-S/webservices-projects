@@ -20,7 +20,7 @@ function App() {
     <Router>
       <NavBar />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<ProtectedRoute element={PostsPage} />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/posts" element={<ProtectedRoute element={PostsPage} />} />

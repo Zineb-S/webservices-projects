@@ -65,28 +65,29 @@ const MutationResolver = {
         });
       },
       updatePost: async (_, { id, text, image, link, tags }) => {
-        let tagsUpdateStructure = {};
+        const data = {
+          text,
+          image,
+          link,
+        };
+      
         if (tags) {
-          // Clear existing tags and connect or create new tags
-          tagsUpdateStructure = {
-            disconnect: [], // You may need to find existing tags to disconnect
+          // This disconnects all existing tags (if you want to remove all and add new ones)
+          data.tags = {
+            set: [],
             connectOrCreate: tags.map(tag => ({
               where: { name: tag },
               create: { name: tag },
             })),
           };
         }
-    
+      
         return prisma.post.update({
           where: { id },
-          data: {
-            text,
-            image,
-            link,
-            ...tagsUpdateStructure,
-          },
+          data,
         });
       },
+      
       updateComment: async (_, args) => {
         const { id, ...data } = args;
         return prisma.comment.update({

@@ -7,6 +7,12 @@ const UserProfile = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const { userId } = useParams(); // assuming you have a route like /users/:userId
+  const profileImageStyle = {
+    width: '150px', // Set the width to the desired size
+    height: '150px', // Set the height to the desired size
+    objectFit: 'cover', // This makes sure the image keeps its aspect ratio
+    borderRadius: '50%', // Optional: makes the image circular
+  };
 
   useEffect(() => {
     axios.get(`http://localhost:8080/api/v1/users/${userId}`)
@@ -31,14 +37,14 @@ const UserProfile = () => {
         <div>
           <h2>{user.userFirstName} {user.userLastName}</h2>
           <div>
-  <img src={user.userPicture} alt="Profile" />
-  <p>Title: {user.userTitle}</p>
-  <p>First Name: {user.userFirstName}</p>
-  <p>Last Name: {user.userLastName}</p>
-  <p>Email: {user.userEmail}</p>
-  <p>Date of Birth: {user.userDateOfBirth}</p>
-  {/* Add other fields as needed */}
-</div>
+            <img src={user.userPicture} alt="Profile" style={profileImageStyle} />
+            <p>Title: {user.userTitle}</p>
+            <p>First Name: {user.userFirstName}</p>
+            <p>Last Name: {user.userLastName}</p>
+            <p>Email: {user.userEmail}</p>
+            <p>Date of Birth: {user.userDateOfBirth}</p>
+            {/* Add other fields as needed */}
+          </div>
         </div>
       )}
     </div>

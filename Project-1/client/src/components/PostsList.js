@@ -3,6 +3,7 @@ import axios from 'axios';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom'; 
+
 function PostsList() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);

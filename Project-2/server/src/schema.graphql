@@ -71,7 +71,7 @@ type Query {
 type Mutation {
   # User Mutations
   createUser(title: String, firstName: String!, lastName: String!, gender: String, email: String!, dateOfBirth: String, phone: String, picture: String, location: LocationInput): User
-  updateUser(id: ID!, firstName: String, lastName: String): User
+  updateUser(id: ID!, firstName: String, lastName: String,email: String!,phone: String,gender: String): User
   deleteUser(id: ID!): ID
 
   # Post Mutations

@@ -1,0 +1,1958 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: http://localhost:8080
+  description: Generated server url
+paths:
+  /api/v1/users/{id}:
+    get:
+      tags:
+      - user-controller
+      operationId: getSingleUser
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                $ref: '#/components/schemas/UserDto'
+            application/vnd.myapi.v1+xml:
+              schema:
+                $ref: '#/components/schemas/UserDto'
+    put:
+      tags:
+      - user-controller
+      operationId: updateUser
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                $ref: '#/components/schemas/User'
+            application/vnd.myapi.v1+xml:
+              schema:
+                $ref: '#/components/schemas/User'
+    delete:
+      tags:
+      - user-controller
+      operationId: deleteUser
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                type: string
+                x-content-type: application/vnd.myapi.v1+json
+            application/vnd.myapi.v1+xml:
+              schema:
+                type: string
+  /api/v1/tags/{id}:
+    get:
+      tags:
+      - tag-controller
+      operationId: getSingleTag
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                $ref: '#/components/schemas/Tag'
+            application/vnd.myapi.v1+xml:
+              schema:
+                $ref: '#/components/schemas/Tag'
+    put:
+      tags:
+      - tag-controller
+      operationId: updateTag
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tag'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                $ref: '#/components/schemas/Tag'
+            application/vnd.myapi.v1+xml:
+              schema:
+                $ref: '#/components/schemas/Tag'
+    delete:
+      tags:
+      - tag-controller
+      operationId: deleteTag
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                type: string
+                x-content-type: application/vnd.myapi.v1+json
+            application/vnd.myapi.v1+xml:
+              schema:
+                type: string
+  /api/v1/posts/{id}:
+    get:
+      tags:
+      - post-controller
+      operationId: getSinglePost
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                $ref: '#/components/schemas/Post'
+            application/vnd.myapi.v1+xml:
+              schema:
+                $ref: '#/components/schemas/Post'
+    put:
+      tags:
+      - post-controller
+      operationId: updatePost
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                $ref: '#/components/schemas/Post'
+            application/vnd.myapi.v1+xml:
+              schema:
+                $ref: '#/components/schemas/Post'
+    delete:
+      tags:
+      - post-controller
+      operationId: deletePost
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                type: string
+                x-content-type: application/vnd.myapi.v1+json
+            application/vnd.myapi.v1+xml:
+              schema:
+                type: string
+  /api/v1/locations/{id}:
+    get:
+      tags:
+      - location-controller
+      operationId: getSingleLocation
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                $ref: '#/components/schemas/Location'
+            application/vnd.myapi.v1+xml:
+              schema:
+                $ref: '#/components/schemas/Location'
+    put:
+      tags:
+      - location-controller
+      operationId: updateLocation
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Location'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                $ref: '#/components/schemas/Location'
+            application/vnd.myapi.v1+xml:
+              schema:
+                $ref: '#/components/schemas/Location'
+    delete:
+      tags:
+      - location-controller
+      operationId: deleteLocation
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                type: string
+                x-content-type: application/vnd.myapi.v1+json
+            application/vnd.myapi.v1+xml:
+              schema:
+                type: string
+  /api/v1/comments/{id}:
+    get:
+      tags:
+      - comment-controller
+      operationId: getSingleComment
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+            application/vnd.myapi.v1+xml:
+              schema:
+                $ref: '#/components/schemas/Comment'
+    put:
+      tags:
+      - comment-controller
+      operationId: updateComment
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Comment'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+            application/vnd.myapi.v1+xml:
+              schema:
+                $ref: '#/components/schemas/Comment'
+    delete:
+      tags:
+      - comment-controller
+      operationId: deleteComment
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                type: string
+                x-content-type: application/vnd.myapi.v1+json
+            application/vnd.myapi.v1+xml:
+              schema:
+                type: string
+  /api/v1/users:
+    get:
+      tags:
+      - user-controller
+      operationId: getAllUsersV2_1
+      parameters:
+      - name: pageable
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v2+json:
+              schema:
+                type: string
+                x-content-type: application/vnd.myapi.v2+json
+            application/vnd.myapi.v1+json:
+              schema:
+                $ref: '#/components/schemas/PagedModelEntityModelUserDto'
+            application/vnd.myapi.v1+xml:
+              schema:
+                $ref: '#/components/schemas/PagedModelEntityModelUserDto'
+    post:
+      tags:
+      - user-controller
+      operationId: createUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                $ref: '#/components/schemas/User'
+            application/vnd.myapi.v1+xml:
+              schema:
+                $ref: '#/components/schemas/User'
+  /api/v1/tags:
+    get:
+      tags:
+      - tag-controller
+      operationId: getAllTags
+      parameters:
+      - name: pageable
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                $ref: '#/components/schemas/PagedModelEntityModelTag'
+            application/vnd.myapi.v1+xml:
+              schema:
+                $ref: '#/components/schemas/PagedModelEntityModelTag'
+    post:
+      tags:
+      - tag-controller
+      operationId: createTag
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tag'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                $ref: '#/components/schemas/Tag'
+            application/vnd.myapi.v1+xml:
+              schema:
+                $ref: '#/components/schemas/Tag'
+  /api/v1/posts:
+    get:
+      tags:
+      - post-controller
+      operationId: getAllPosts
+      parameters:
+      - name: pageable
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                $ref: '#/components/schemas/PagedModelEntityModelPost'
+            application/vnd.myapi.v1+xml:
+              schema:
+                $ref: '#/components/schemas/PagedModelEntityModelPost'
+    post:
+      tags:
+      - post-controller
+      operationId: createPost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                $ref: '#/components/schemas/Post'
+            application/vnd.myapi.v1+xml:
+              schema:
+                $ref: '#/components/schemas/Post'
+  /api/v1/locations:
+    get:
+      tags:
+      - location-controller
+      operationId: getAllLocations
+      parameters:
+      - name: pageable
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                $ref: '#/components/schemas/PagedModelEntityModelLocation'
+            application/vnd.myapi.v1+xml:
+              schema:
+                $ref: '#/components/schemas/PagedModelEntityModelLocation'
+    post:
+      tags:
+      - location-controller
+      operationId: createLocation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Location'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                $ref: '#/components/schemas/Location'
+            application/vnd.myapi.v1+xml:
+              schema:
+                $ref: '#/components/schemas/Location'
+  /api/v1/comments:
+    get:
+      tags:
+      - comment-controller
+      operationId: getAllComments
+      parameters:
+      - name: pageable
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                $ref: '#/components/schemas/PagedModelEntityModelComment'
+            application/vnd.myapi.v1+xml:
+              schema:
+                $ref: '#/components/schemas/PagedModelEntityModelComment'
+    post:
+      tags:
+      - comment-controller
+      operationId: createComment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Comment'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+            application/vnd.myapi.v1+xml:
+              schema:
+                $ref: '#/components/schemas/Comment'
+  /api/v1/users/search:
+    get:
+      tags:
+      - user-controller
+      operationId: searchUsers
+      parameters:
+      - name: query
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: pageable
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                $ref: '#/components/schemas/PageUser'
+            application/vnd.myapi.v1+xml:
+              schema:
+                $ref: '#/components/schemas/PageUser'
+  /api/v1/test/server-error:
+    get:
+      tags:
+      - test-controller
+      operationId: triggerServerError
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+                x-content-type: '*/*'
+  /api/v1/test/greeting:
+    get:
+      tags:
+      - test-controller
+      operationId: getGreeting
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+                x-content-type: '*/*'
+  /api/v1/test/currentDate:
+    get:
+      tags:
+      - test-controller
+      operationId: getCurrentDate
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+                x-content-type: '*/*'
+  /api/v1/posts/user/{userId}:
+    get:
+      tags:
+      - post-controller
+      operationId: getPostsByUser
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: size
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                $ref: '#/components/schemas/CollectionModelEntityModelPost'
+            application/vnd.myapi.v1+xml:
+              schema:
+                $ref: '#/components/schemas/CollectionModelEntityModelPost'
+  /api/v1/posts/tag/{tag}:
+    get:
+      tags:
+      - post-controller
+      operationId: getPostsByTag
+      parameters:
+      - name: tag
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: size
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                $ref: '#/components/schemas/CollectionModelEntityModelPost'
+            application/vnd.myapi.v1+xml:
+              schema:
+                $ref: '#/components/schemas/CollectionModelEntityModelPost'
+  /api/v1/posts/search:
+    get:
+      tags:
+      - post-controller
+      operationId: searchPosts
+      parameters:
+      - name: query
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: pageable
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                $ref: '#/components/schemas/PagePost'
+            application/vnd.myapi.v1+xml:
+              schema:
+                $ref: '#/components/schemas/PagePost'
+  /api/v1/comments/user/{userId}:
+    get:
+      tags:
+      - comment-controller
+      operationId: getCommentsByUser
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: size
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                $ref: '#/components/schemas/CollectionModelEntityModelComment'
+            application/vnd.myapi.v1+xml:
+              schema:
+                $ref: '#/components/schemas/CollectionModelEntityModelComment'
+  /api/v1/comments/post/{postId}:
+    get:
+      tags:
+      - comment-controller
+      operationId: getCommentsByPost
+      parameters:
+      - name: postId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: size
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      responses:
+        "200":
+          description: OK
+          content:
+            application/vnd.myapi.v1+json:
+              schema:
+                $ref: '#/components/schemas/CollectionModelEntityModelComment'
+            application/vnd.myapi.v1+xml:
+              schema:
+                $ref: '#/components/schemas/CollectionModelEntityModelComment'
+components:
+  schemas:
+    User:
+      required:
+      - userFirstName
+      - userLastName
+      - userPassword
+      type: object
+      properties:
+        userId:
+          type: string
+        userTitle:
+          type: string
+        userFirstName:
+          maxLength: 50
+          minLength: 2
+          type: string
+        userLastName:
+          maxLength: 50
+          minLength: 2
+          type: string
+        userGender:
+          type: string
+        userEmail:
+          type: string
+        userPassword:
+          type: string
+        userDateOfBirth:
+          type: string
+        userRegisterDate:
+          type: string
+        userPhone:
+          type: string
+        userPicture:
+          type: string
+        userLocationId:
+          type: string
+      example:
+        userTitle: userTitle
+        userPicture: userPicture
+        userPassword: userPassword
+        userRegisterDate: userRegisterDate
+        userLocationId: userLocationId
+        userLastName: userLastName
+        userPhone: userPhone
+        userGender: userGender
+        userEmail: userEmail
+        userFirstName: userFirstName
+        userId: userId
+        userDateOfBirth: userDateOfBirth
+    Tag:
+      required:
+      - tagName
+      type: object
+      properties:
+        tagId:
+          type: string
+        tagName:
+          type: string
+      example:
+        tagId: tagId
+        tagName: tagName
+    Post:
+      required:
+      - postOwnerId
+      - postText
+      type: object
+      properties:
+        postId:
+          type: string
+        postText:
+          maxLength: 1000
+          minLength: 6
+          type: string
+        postImage:
+          type: string
+        postLikes:
+          type: integer
+          format: int32
+        postLink:
+          type: string
+        postTags:
+          type: array
+          items:
+            type: string
+        postPublishDate:
+          type: string
+        postOwnerId:
+          type: string
+      example:
+        postLink: postLink
+        postText: postText
+        postImage: postImage
+        postTags:
+        - postTags
+        - postTags
+        postOwnerId: postOwnerId
+        postId: postId
+        postLikes: 0
+        postPublishDate: postPublishDate
+    Location:
+      type: object
+      properties:
+        locationId:
+          type: string
+        locationStreet:
+          type: string
+        locationCity:
+          type: string
+        locationState:
+          type: string
+        locationCountry:
+          type: string
+        locationTimezone:
+          type: string
+      example:
+        locationTimezone: locationTimezone
+        locationCountry: locationCountry
+        locationId: locationId
+        locationStreet: locationStreet
+        locationState: locationState
+        locationCity: locationCity
+    Comment:
+      required:
+      - commentMessage
+      - commentOwnerId
+      - commentPostId
+      type: object
+      properties:
+        commentId:
+          type: string
+        commentMessage:
+          maxLength: 500
+          minLength: 2
+          type: string
+        commentOwnerId:
+          type: string
+        commentPostId:
+          type: string
+        commentPublishDate:
+          type: string
+      example:
+        commentOwnerId: commentOwnerId
+        commentId: commentId
+        commentPostId: commentPostId
+        commentPublishDate: commentPublishDate
+        commentMessage: commentMessage
+    Pageable:
+      type: object
+      properties:
+        page:
+          minimum: 0
+          type: integer
+          format: int32
+        size:
+          minimum: 1
+          type: integer
+          format: int32
+        sort:
+          type: array
+          items:
+            type: string
+    EntityModelUserDto:
+      type: object
+      properties:
+        userId:
+          type: string
+        userTitle:
+          type: string
+        userFirstName:
+          type: string
+        userLastName:
+          type: string
+        userGender:
+          type: string
+        userEmail:
+          type: string
+        userDateOfBirth:
+          type: string
+        userRegisterDate:
+          type: string
+        userPhone:
+          type: string
+        userPicture:
+          type: string
+        userLocationId:
+          type: string
+        _links:
+          $ref: '#/components/schemas/Links'
+    Links:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/Link'
+      x-schema-name: Links
+    PageMetadata:
+      type: object
+      properties:
+        size:
+          type: integer
+          format: int64
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int64
+        number:
+          type: integer
+          format: int64
+      example:
+        number: 5
+        size: 0
+        totalPages: 1
+        totalElements: 6
+    PagedModelEntityModelUserDto:
+      type: object
+      properties:
+        _embedded:
+          $ref: '#/components/schemas/PagedModelEntityModelUserDto__embedded'
+        _links:
+          $ref: '#/components/schemas/Links'
+        page:
+          $ref: '#/components/schemas/PageMetadata'
+    UserDto:
+      type: object
+      properties:
+        userId:
+          type: string
+        userTitle:
+          type: string
+        userFirstName:
+          type: string
+        userLastName:
+          type: string
+        userGender:
+          type: string
+        userEmail:
+          type: string
+        userDateOfBirth:
+          type: string
+        userRegisterDate:
+          type: string
+        userPhone:
+          type: string
+        userPicture:
+          type: string
+        userLocationId:
+          type: string
+      example:
+        userTitle: userTitle
+        userPicture: userPicture
+        userRegisterDate: userRegisterDate
+        userLocationId: userLocationId
+        userLastName: userLastName
+        userPhone: userPhone
+        userGender: userGender
+        userEmail: userEmail
+        userFirstName: userFirstName
+        userId: userId
+        userDateOfBirth: userDateOfBirth
+    PageUser:
+      type: object
+      properties:
+        totalPages:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int64
+        size:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        number:
+          type: integer
+          format: int32
+        sort:
+          $ref: '#/components/schemas/SortObject'
+        first:
+          type: boolean
+        last:
+          type: boolean
+        numberOfElements:
+          type: integer
+          format: int32
+        pageable:
+          $ref: '#/components/schemas/PageableObject'
+        empty:
+          type: boolean
+      example:
+        number: 5
+        size: 1
+        last: true
+        numberOfElements: 5
+        totalPages: 0
+        pageable:
+          paged: true
+          pageNumber: 7
+          offset: 2
+          pageSize: 9
+          unpaged: true
+          sort: null
+        sort:
+          unsorted: true
+          sorted: true
+          empty: true
+        content:
+        - userTitle: userTitle
+          userPicture: userPicture
+          userPassword: userPassword
+          userRegisterDate: userRegisterDate
+          userLocationId: userLocationId
+          userLastName: userLastName
+          userPhone: userPhone
+          userGender: userGender
+          userEmail: userEmail
+          userFirstName: userFirstName
+          userId: userId
+          userDateOfBirth: userDateOfBirth
+        - userTitle: userTitle
+          userPicture: userPicture
+          userPassword: userPassword
+          userRegisterDate: userRegisterDate
+          userLocationId: userLocationId
+          userLastName: userLastName
+          userPhone: userPhone
+          userGender: userGender
+          userEmail: userEmail
+          userFirstName: userFirstName
+          userId: userId
+          userDateOfBirth: userDateOfBirth
+        first: true
+        totalElements: 6
+        empty: true
+    PageableObject:
+      type: object
+      properties:
+        offset:
+          type: integer
+          format: int64
+        sort:
+          $ref: '#/components/schemas/SortObject'
+        unpaged:
+          type: boolean
+        paged:
+          type: boolean
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+      example:
+        paged: true
+        pageNumber: 7
+        offset: 2
+        pageSize: 9
+        unpaged: true
+        sort: null
+    SortObject:
+      type: object
+      properties:
+        empty:
+          type: boolean
+        sorted:
+          type: boolean
+        unsorted:
+          type: boolean
+      example:
+        unsorted: true
+        sorted: true
+        empty: true
+    EntityModelTag:
+      required:
+      - tagName
+      type: object
+      properties:
+        tagId:
+          type: string
+        tagName:
+          type: string
+        _links:
+          $ref: '#/components/schemas/Links'
+      example:
+        tagId: tagId
+        _links:
+          key:
+            hreflang: hreflang
+            templated: true
+            profile: profile
+            name: name
+            href: href
+            title: title
+            type: type
+            deprecation: deprecation
+        tagName: tagName
+    PagedModelEntityModelTag:
+      type: object
+      properties:
+        _embedded:
+          $ref: '#/components/schemas/PagedModelEntityModelTag__embedded'
+        _links:
+          $ref: '#/components/schemas/Links'
+        page:
+          $ref: '#/components/schemas/PageMetadata'
+      example:
+        _embedded:
+          tagList:
+          - tagId: tagId
+            _links:
+              key:
+                hreflang: hreflang
+                templated: true
+                profile: profile
+                name: name
+                href: href
+                title: title
+                type: type
+                deprecation: deprecation
+            tagName: tagName
+          - tagId: tagId
+            _links:
+              key:
+                hreflang: hreflang
+                templated: true
+                profile: profile
+                name: name
+                href: href
+                title: title
+                type: type
+                deprecation: deprecation
+            tagName: tagName
+        _links: null
+        page:
+          number: 5
+          size: 0
+          totalPages: 1
+          totalElements: 6
+    EntityModelPost:
+      required:
+      - postOwnerId
+      - postText
+      type: object
+      properties:
+        postId:
+          type: string
+        postText:
+          maxLength: 1000
+          minLength: 6
+          type: string
+        postImage:
+          type: string
+        postLikes:
+          type: integer
+          format: int32
+        postLink:
+          type: string
+        postTags:
+          type: array
+          items:
+            type: string
+        postPublishDate:
+          type: string
+        postOwnerId:
+          type: string
+        _links:
+          $ref: '#/components/schemas/Links'
+      example:
+        postLink: postLink
+        postText: postText
+        postImage: postImage
+        _links:
+          key:
+            hreflang: hreflang
+            templated: true
+            profile: profile
+            name: name
+            href: href
+            title: title
+            type: type
+            deprecation: deprecation
+        postTags:
+        - postTags
+        - postTags
+        postOwnerId: postOwnerId
+        postId: postId
+        postLikes: 0
+        postPublishDate: postPublishDate
+    PagedModelEntityModelPost:
+      type: object
+      properties:
+        _embedded:
+          $ref: '#/components/schemas/PagedModelEntityModelPost__embedded'
+        _links:
+          $ref: '#/components/schemas/Links'
+        page:
+          $ref: '#/components/schemas/PageMetadata'
+      example:
+        _embedded:
+          postList:
+          - postLink: postLink
+            postText: postText
+            postImage: postImage
+            _links:
+              key:
+                hreflang: hreflang
+                templated: true
+                profile: profile
+                name: name
+                href: href
+                title: title
+                type: type
+                deprecation: deprecation
+            postTags:
+            - postTags
+            - postTags
+            postOwnerId: postOwnerId
+            postId: postId
+            postLikes: 0
+            postPublishDate: postPublishDate
+          - postLink: postLink
+            postText: postText
+            postImage: postImage
+            _links:
+              key:
+                hreflang: hreflang
+                templated: true
+                profile: profile
+                name: name
+                href: href
+                title: title
+                type: type
+                deprecation: deprecation
+            postTags:
+            - postTags
+            - postTags
+            postOwnerId: postOwnerId
+            postId: postId
+            postLikes: 0
+            postPublishDate: postPublishDate
+        _links: null
+        page:
+          number: 5
+          size: 0
+          totalPages: 1
+          totalElements: 6
+    CollectionModelEntityModelPost:
+      type: object
+      properties:
+        _embedded:
+          $ref: '#/components/schemas/PagedModelEntityModelPost__embedded'
+        _links:
+          $ref: '#/components/schemas/Links'
+      example:
+        _embedded:
+          postList:
+          - postLink: postLink
+            postText: postText
+            postImage: postImage
+            _links:
+              key:
+                hreflang: hreflang
+                templated: true
+                profile: profile
+                name: name
+                href: href
+                title: title
+                type: type
+                deprecation: deprecation
+            postTags:
+            - postTags
+            - postTags
+            postOwnerId: postOwnerId
+            postId: postId
+            postLikes: 0
+            postPublishDate: postPublishDate
+          - postLink: postLink
+            postText: postText
+            postImage: postImage
+            _links:
+              key:
+                hreflang: hreflang
+                templated: true
+                profile: profile
+                name: name
+                href: href
+                title: title
+                type: type
+                deprecation: deprecation
+            postTags:
+            - postTags
+            - postTags
+            postOwnerId: postOwnerId
+            postId: postId
+            postLikes: 0
+            postPublishDate: postPublishDate
+        _links:
+          key:
+            hreflang: hreflang
+            templated: true
+            profile: profile
+            name: name
+            href: href
+            title: title
+            type: type
+            deprecation: deprecation
+    PagePost:
+      type: object
+      properties:
+        totalPages:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int64
+        size:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/Post'
+        number:
+          type: integer
+          format: int32
+        sort:
+          $ref: '#/components/schemas/SortObject'
+        first:
+          type: boolean
+        last:
+          type: boolean
+        numberOfElements:
+          type: integer
+          format: int32
+        pageable:
+          $ref: '#/components/schemas/PageableObject'
+        empty:
+          type: boolean
+      example:
+        number: 5
+        size: 1
+        last: true
+        numberOfElements: 5
+        totalPages: 0
+        pageable:
+          paged: true
+          pageNumber: 7
+          offset: 2
+          pageSize: 9
+          unpaged: true
+          sort: null
+        sort:
+          unsorted: true
+          sorted: true
+          empty: true
+        content:
+        - postLink: postLink
+          postText: postText
+          postImage: postImage
+          postTags:
+          - postTags
+          - postTags
+          postOwnerId: postOwnerId
+          postId: postId
+          postLikes: 0
+          postPublishDate: postPublishDate
+        - postLink: postLink
+          postText: postText
+          postImage: postImage
+          postTags:
+          - postTags
+          - postTags
+          postOwnerId: postOwnerId
+          postId: postId
+          postLikes: 0
+          postPublishDate: postPublishDate
+        first: true
+        totalElements: 6
+        empty: true
+    EntityModelLocation:
+      type: object
+      properties:
+        locationId:
+          type: string
+        locationStreet:
+          type: string
+        locationCity:
+          type: string
+        locationState:
+          type: string
+        locationCountry:
+          type: string
+        locationTimezone:
+          type: string
+        _links:
+          $ref: '#/components/schemas/Links'
+      example:
+        locationTimezone: locationTimezone
+        locationCountry: locationCountry
+        _links:
+          key:
+            hreflang: hreflang
+            templated: true
+            profile: profile
+            name: name
+            href: href
+            title: title
+            type: type
+            deprecation: deprecation
+        locationId: locationId
+        locationStreet: locationStreet
+        locationState: locationState
+        locationCity: locationCity
+    PagedModelEntityModelLocation:
+      type: object
+      properties:
+        _embedded:
+          $ref: '#/components/schemas/PagedModelEntityModelLocation__embedded'
+        _links:
+          $ref: '#/components/schemas/Links'
+        page:
+          $ref: '#/components/schemas/PageMetadata'
+      example:
+        _embedded:
+          locationList:
+          - locationTimezone: locationTimezone
+            locationCountry: locationCountry
+            _links:
+              key:
+                hreflang: hreflang
+                templated: true
+                profile: profile
+                name: name
+                href: href
+                title: title
+                type: type
+                deprecation: deprecation
+            locationId: locationId
+            locationStreet: locationStreet
+            locationState: locationState
+            locationCity: locationCity
+          - locationTimezone: locationTimezone
+            locationCountry: locationCountry
+            _links:
+              key:
+                hreflang: hreflang
+                templated: true
+                profile: profile
+                name: name
+                href: href
+                title: title
+                type: type
+                deprecation: deprecation
+            locationId: locationId
+            locationStreet: locationStreet
+            locationState: locationState
+            locationCity: locationCity
+        _links: null
+        page:
+          number: 5
+          size: 0
+          totalPages: 1
+          totalElements: 6
+    EntityModelComment:
+      required:
+      - commentMessage
+      - commentOwnerId
+      - commentPostId
+      type: object
+      properties:
+        commentId:
+          type: string
+        commentMessage:
+          maxLength: 500
+          minLength: 2
+          type: string
+        commentOwnerId:
+          type: string
+        commentPostId:
+          type: string
+        commentPublishDate:
+          type: string
+        _links:
+          $ref: '#/components/schemas/Links'
+      example:
+        commentOwnerId: commentOwnerId
+        _links:
+          key:
+            hreflang: hreflang
+            templated: true
+            profile: profile
+            name: name
+            href: href
+            title: title
+            type: type
+            deprecation: deprecation
+        commentId: commentId
+        commentPostId: commentPostId
+        commentPublishDate: commentPublishDate
+        commentMessage: commentMessage
+    PagedModelEntityModelComment:
+      type: object
+      properties:
+        _embedded:
+          $ref: '#/components/schemas/PagedModelEntityModelComment__embedded'
+        _links:
+          $ref: '#/components/schemas/Links'
+        page:
+          $ref: '#/components/schemas/PageMetadata'
+      example:
+        _embedded:
+          commentList:
+          - commentOwnerId: commentOwnerId
+            _links:
+              key:
+                hreflang: hreflang
+                templated: true
+                profile: profile
+                name: name
+                href: href
+                title: title
+                type: type
+                deprecation: deprecation
+            commentId: commentId
+            commentPostId: commentPostId
+            commentPublishDate: commentPublishDate
+            commentMessage: commentMessage
+          - commentOwnerId: commentOwnerId
+            _links:
+              key:
+                hreflang: hreflang
+                templated: true
+                profile: profile
+                name: name
+                href: href
+                title: title
+                type: type
+                deprecation: deprecation
+            commentId: commentId
+            commentPostId: commentPostId
+            commentPublishDate: commentPublishDate
+            commentMessage: commentMessage
+        _links: null
+        page:
+          number: 5
+          size: 0
+          totalPages: 1
+          totalElements: 6
+    CollectionModelEntityModelComment:
+      type: object
+      properties:
+        _embedded:
+          $ref: '#/components/schemas/PagedModelEntityModelComment__embedded'
+        _links:
+          $ref: '#/components/schemas/Links'
+      example:
+        _embedded:
+          commentList:
+          - commentOwnerId: commentOwnerId
+            _links:
+              key:
+                hreflang: hreflang
+                templated: true
+                profile: profile
+                name: name
+                href: href
+                title: title
+                type: type
+                deprecation: deprecation
+            commentId: commentId
+            commentPostId: commentPostId
+            commentPublishDate: commentPublishDate
+            commentMessage: commentMessage
+          - commentOwnerId: commentOwnerId
+            _links:
+              key:
+                hreflang: hreflang
+                templated: true
+                profile: profile
+                name: name
+                href: href
+                title: title
+                type: type
+                deprecation: deprecation
+            commentId: commentId
+            commentPostId: commentPostId
+            commentPublishDate: commentPublishDate
+            commentMessage: commentMessage
+        _links:
+          key:
+            hreflang: hreflang
+            templated: true
+            profile: profile
+            name: name
+            href: href
+            title: title
+            type: type
+            deprecation: deprecation
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+        hreflang:
+          type: string
+        title:
+          type: string
+        type:
+          type: string
+        deprecation:
+          type: string
+        profile:
+          type: string
+        name:
+          type: string
+        templated:
+          type: boolean
+      example:
+        hreflang: hreflang
+        templated: true
+        profile: profile
+        name: name
+        href: href
+        title: title
+        type: type
+        deprecation: deprecation
+    PagedModelEntityModelUserDto__embedded:
+      type: object
+      properties:
+        userDtoList:
+          type: array
+          items:
+            $ref: '#/components/schemas/EntityModelUserDto'
+    PagedModelEntityModelTag__embedded:
+      type: object
+      properties:
+        tagList:
+          type: array
+          items:
+            $ref: '#/components/schemas/EntityModelTag'
+      example:
+        tagList:
+        - tagId: tagId
+          _links:
+            key:
+              hreflang: hreflang
+              templated: true
+              profile: profile
+              name: name
+              href: href
+              title: title
+              type: type
+              deprecation: deprecation
+          tagName: tagName
+        - tagId: tagId
+          _links:
+            key:
+              hreflang: hreflang
+              templated: true
+              profile: profile
+              name: name
+              href: href
+              title: title
+              type: type
+              deprecation: deprecation
+          tagName: tagName
+    PagedModelEntityModelPost__embedded:
+      type: object
+      properties:
+        postList:
+          type: array
+          items:
+            $ref: '#/components/schemas/EntityModelPost'
+      example:
+        postList:
+        - postLink: postLink
+          postText: postText
+          postImage: postImage
+          _links:
+            key:
+              hreflang: hreflang
+              templated: true
+              profile: profile
+              name: name
+              href: href
+              title: title
+              type: type
+              deprecation: deprecation
+          postTags:
+          - postTags
+          - postTags
+          postOwnerId: postOwnerId
+          postId: postId
+          postLikes: 0
+          postPublishDate: postPublishDate
+        - postLink: postLink
+          postText: postText
+          postImage: postImage
+          _links:
+            key:
+              hreflang: hreflang
+              templated: true
+              profile: profile
+              name: name
+              href: href
+              title: title
+              type: type
+              deprecation: deprecation
+          postTags:
+          - postTags
+          - postTags
+          postOwnerId: postOwnerId
+          postId: postId
+          postLikes: 0
+          postPublishDate: postPublishDate
+    PagedModelEntityModelLocation__embedded:
+      type: object
+      properties:
+        locationList:
+          type: array
+          items:
+            $ref: '#/components/schemas/EntityModelLocation'
+      example:
+        locationList:
+        - locationTimezone: locationTimezone
+          locationCountry: locationCountry
+          _links:
+            key:
+              hreflang: hreflang
+              templated: true
+              profile: profile
+              name: name
+              href: href
+              title: title
+              type: type
+              deprecation: deprecation
+          locationId: locationId
+          locationStreet: locationStreet
+          locationState: locationState
+          locationCity: locationCity
+        - locationTimezone: locationTimezone
+          locationCountry: locationCountry
+          _links:
+            key:
+              hreflang: hreflang
+              templated: true
+              profile: profile
+              name: name
+              href: href
+              title: title
+              type: type
+              deprecation: deprecation
+          locationId: locationId
+          locationStreet: locationStreet
+          locationState: locationState
+          locationCity: locationCity
+    PagedModelEntityModelComment__embedded:
+      type: object
+      properties:
+        commentList:
+          type: array
+          items:
+            $ref: '#/components/schemas/EntityModelComment'
+      example:
+        commentList:
+        - commentOwnerId: commentOwnerId
+          _links:
+            key:
+              hreflang: hreflang
+              templated: true
+              profile: profile
+              name: name
+              href: href
+              title: title
+              type: type
+              deprecation: deprecation
+          commentId: commentId
+          commentPostId: commentPostId
+          commentPublishDate: commentPublishDate
+          commentMessage: commentMessage
+        - commentOwnerId: commentOwnerId
+          _links:
+            key:
+              hreflang: hreflang
+              templated: true
+              profile: profile
+              name: name
+              href: href
+              title: title
+              type: type
+              deprecation: deprecation
+          commentId: commentId
+          commentPostId: commentPostId
+          commentPublishDate: commentPublishDate
+          commentMessage: commentMessage

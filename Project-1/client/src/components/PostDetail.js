@@ -66,11 +66,18 @@ function PostDetail() {
       })
       .catch(error => console.error('Error deleting comment:', error));
   };
-  
+  const profileImageStyle = {
+    width: '500px', // Set the width to the desired size
+    height: '500px', // Set the height to the desired size
+    objectFit: 'cover', 
+   
+    
+  };
+
   return (
-    <div >
+    <div style={{marginLeft:'200px'}} >
     <Card>
-    {post.postImage && <Card.Img variant="top" src={post.postImage} width={350} height={350} />}
+    {post.postImage && <Card.Img variant="top" src={post.postImage} style={profileImageStyle} />}
     <Card.Body>
     <Card.Title>{post.postText}</Card.Title>
     <Card.Text>Likes: {post.postLikes}</Card.Text>
