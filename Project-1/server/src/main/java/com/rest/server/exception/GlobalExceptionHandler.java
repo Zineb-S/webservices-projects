@@ -47,17 +47,6 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorMessage+ ex.getMessage(), HttpStatus.NOT_FOUND);
     }
 
-   /* @ExceptionHandler(NoHandlerFoundException.class)
-    public ResponseEntity<Object> handleNoHandlerFoundException(NoHandlerFoundException ex) {
-        Map<String, Object> body = new LinkedHashMap<>();
-        body.put("timestamp", LocalDateTime.now());
-        body.put("status", HttpStatus.NOT_FOUND.value());
-        body.put("error", "PATH_NOT_FOUND");
-        body.put("message", "The requested path is not valid: " + ex.getRequestURL());
-        body.put("path", ex.getRequestURL());
-
-        return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
-    }*/
 
     // Handle invalid path
     @ExceptionHandler(NoHandlerFoundException.class)
@@ -71,5 +60,16 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>("Server error: " + ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    // Additional exception handlers as needed...
+     /* @ExceptionHandler(NoHandlerFoundException.class)
+    public ResponseEntity<Object> handleNoHandlerFoundException(NoHandlerFoundException ex) {
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("timestamp", LocalDateTime.now());
+        body.put("status", HttpStatus.NOT_FOUND.value());
+        body.put("error", "PATH_NOT_FOUND");
+        body.put("message", "The requested path is not valid: " + ex.getRequestURL());
+        body.put("path", ex.getRequestURL());
+
+        return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
+    }*/
+
 }
