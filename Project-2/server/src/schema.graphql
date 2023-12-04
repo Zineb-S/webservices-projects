@@ -1,0 +1,109 @@
+type User {
+  id: ID!
+  title: String
+  firstName: String!
+  lastName: String!
+  gender: String
+  email: String!
+  dateOfBirth: String
+  registerDate: String!
+  phone: String
+  picture: String
+  location: Location
+  posts: [Post]
+}
+
+type Post {
+  id: ID!
+  text: String!
+  image: String
+  likes: Int!
+  link: String
+  publishDate: String!
+  owner: User!
+  comments: [Comment]
+  tags: [Tag]
+}
+
+type Comment {
+  id: ID!
+  message: String!
+  owner: User!
+  post: Post!
+  publishDate: String!
+}
+
+type Tag {
+  name: String!
+}
+
+type Location {
+  street: String!
+  city: String!
+  state: String!
+  country: String!
+  timezone: String!
+}
+
+type Query {
+  # User Queries
+  users(page: Int, limit: Int, name: String, sortBy: String, sortOrder: String): [User]
+  user(id: ID!): User
+
+  # Post Queries
+  posts(page: Int, limit: Int): [Post]
+  post(id: ID!): Post
+  postsByUser(userId: ID!, page: Int, limit: Int): [Post]
+  postsByTag(tagName: String!, page: Int, limit: Int): [Post]
+  postById(id: ID!): Post
+  # Comment Queries
+  comments(page: Int, limit: Int): [Comment]
+  comment(id: ID!): Comment
+  commentsByPost(postId: ID!, page: Int, limit: Int): [Comment]
+  commentsByUser(userId: ID!, page: Int, limit: Int): [Comment]
+  # Tag Queries
+  tags: [Tag]
+  locations: [Location]
+  location(id: ID!): Location
+  
+}
+
+type Mutation {
+  # User Mutations
+  createUser(title: String, firstName: String!, lastName: String!, gender: String, email: String!, dateOfBirth: String, phone: String, picture: String, location: LocationInput): User
+  updateUser(id: ID!, firstName: String, lastName: String): User
+  deleteUser(id: ID!): ID
+
+  # Post Mutations
+  createPost(data: CreatePostInput!): Post
+  updatePost(id: ID!, text: String, image: String, link: String, tags: [String]): Post
+  deletePost(id: ID!): ID
+
+  # Comment Mutations
+  createComment(message: String!, owner: ID!, post: ID!): Comment
+  updateComment(id: ID!,message: String!):Comment
+  deleteComment(id: ID!): ID
+
+  # Tag Mutations
+  createTag(name: String!): Tag
+  updateTag(id: ID!, name: String!): Tag
+  deleteTag(id: ID!): ID
+# Location Mutations
+  createLocation(street: String!, city: String!, state: String!, country: String!, timezone: String!): Location
+  updateLocation(id: ID!, street: String, city: String, state: String, country: String, timezone: String): Location
+  deleteLocation(id: ID!): ID
+}
+
+input LocationInput {
+  street: String!
+  city: String!
+  state: String!
+  country: String!
+  timezone: String!
+}
+input CreatePostInput {
+  text: String!
+  image: String
+  tags: [String]
+  ownerId: ID!
+}
