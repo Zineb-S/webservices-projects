@@ -49,7 +49,8 @@ function SignUpPage() {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <div className="signup-container">
+    <Form onSubmit={handleSubmit} className="signup-form">
       <Form.Group controlId="formUserTitle">
         <Form.Label>Title</Form.Label>
         <Form.Control type="text" placeholder="Mr/Ms/Dr" name="userTitle" value={formData.userTitle} onChange={handleChange} />
@@ -86,6 +87,7 @@ function SignUpPage() {
         Sign Up
       </Button>
     </Form>
+    </div>
   );
 }
 

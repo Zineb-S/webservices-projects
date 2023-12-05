@@ -27,20 +27,18 @@ const UserProfile = () => {
       });
   }, [userId]);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
+  if (loading) return <div className="loading">Loading...</div>;
+  if (error) return <div className="error">{error}</div>;
 
   return (
-    <div>
+    <div className="profile-container">
       <h1>User Profile</h1>
       {user && (
-        <div>
-          <h2>{user.userFirstName} {user.userLastName}</h2>
-          <div>
-            <img src={user.userPicture} alt="Profile" style={profileImageStyle} />
+        <div className="user-info">
+          <img src={user.userPicture} alt="Profile" className="profile-image" />
+          <div className="user-details">
+            <h2>{user.userFirstName} {user.userLastName}</h2>
             <p>Title: {user.userTitle}</p>
-            <p>First Name: {user.userFirstName}</p>
-            <p>Last Name: {user.userLastName}</p>
             <p>Email: {user.userEmail}</p>
             <p>Date of Birth: {user.userDateOfBirth}</p>
             {/* Add other fields as needed */}
@@ -48,7 +46,7 @@ const UserProfile = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
 export default UserProfile;

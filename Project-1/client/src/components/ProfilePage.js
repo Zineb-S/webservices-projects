@@ -18,28 +18,32 @@ const ProfilePage = () => {
       setLoading(false);
     });
 }, []);
+const profileImageStyle = {
+  width: '150px', // Set the width to the desired size
+  height: '150px', // Set the height to the desired size
+  objectFit: 'cover', // This makes sure the image keeps its aspect ratio
+  borderRadius: '50%', // Optional: makes the image circular
+};
 
-if (loading) return <div>Loading...</div>;
-if (error) return <div>{error}</div>;
-  return (
-    <div>
+if (loading) return <div className="loading">Loading...</div>;
+if (error) return <div className="error">{error}</div>;
+
+return (
+  <div className="profile-container">
     <h1>User Profile</h1>
     {user && (
-      <div>
-        <h2>{user.userFirstName} {user.userLastName}</h2>
-        <div>
-  <img src={user.userPicture} alt="Profile" />
-  <p>Title: {user.userTitle}</p>
-  <p>First Name: {user.userFirstName}</p>
-  <p>Last Name: {user.userLastName}</p>
-  <p>Email: {user.userEmail}</p>
-  <p>Date of Birth: {user.userDateOfBirth}</p>
-  {/* Add other fields as needed */}
-</div>
+      <div className="user-info">
+        <img src={user.userPicture} alt="Profile" className="profile-image" />
+        <div className="user-details">
+          <h2>{user.userFirstName} {user.userLastName}</h2>
+          <p>Title: {user.userTitle}</p>
+          <p>Email: {user.userEmail}</p>
+          <p>Date of Birth: {user.userDateOfBirth}</p>
+          {/* Add other fields as needed */}
+        </div>
       </div>
     )}
   </div>
-  )
+)
 }
-
 export default ProfilePage

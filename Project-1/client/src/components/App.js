@@ -13,7 +13,7 @@ import UserPosts from './UserPosts';
 import PostDetail from './PostDetail';
 import ProtectedRoute from '../ProtectedRoute';
 import UserProfile from './UserProfile';
-
+import "../styles/App.css"
 function App() {
   return (
     

@@ -43,8 +43,8 @@ const UsersList = () => {
    
     return (
         <>
-            <CreateUserForm />
-            <h3>Users List:</h3>
+            
+      
             <List>
                 {data.users.map((user) => (
                     <Card key={user.id} className={classes.card} onClick={() => details(user.id)}>
@@ -60,6 +60,7 @@ const UsersList = () => {
                 ))}
             
             </List>
+            <CreateUserForm />
         </>
     );
 };

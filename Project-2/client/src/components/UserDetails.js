@@ -144,7 +144,34 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: theme.shape.borderRadius,
         margin: theme.spacing(1, 0),
     },
-    // Add more styles as needed
+    userDetailsContainer: {
+      padding: theme.spacing(3),
+      margin: theme.spacing(3, 0),
+      backgroundColor: theme.palette.background.default,
+      borderRadius: theme.shape.borderRadius,
+      boxShadow: theme.shadows[3],
+  },
+  userDetailsHeader: {
+      marginBottom: theme.spacing(2),
+  },
+  profileInfo: {
+      marginLeft: theme.spacing(2),
+  },
+  userActions: {
+      marginTop: theme.spacing(2),
+      display: 'flex',
+      justifyContent: 'space-between',
+      width: '100%',
+  },
+  postSection: {
+      marginTop: theme.spacing(4),
+  },
+  commentList: {
+      marginTop: theme.spacing(2),
+  },
+  commentText: {
+      paddingLeft: theme.spacing(2),
+  },
 }));
 
 const UserDetails = () => {
@@ -179,73 +206,75 @@ const UserDetails = () => {
     if (error) return <p>Error: {error.message}</p>;
 
     const { user } = data;
-
     return (
-        <div>
-            <Paper className={classes.profileContainer}>
-                <Grid container spacing={2} alignItems="center">
-                    <Grid item>
-                        <Avatar src={user.picture} alt={`${user.firstName} ${user.lastName}`} className={classes.avatar} />
-                    </Grid>
-                    <Grid item>
-                        <Typography variant="h4">{user.firstName} {user.lastName}</Typography>
-                        <Typography variant="body1">Email: {user.email}</Typography>
-                        <Typography variant="body1">Phone: {user.phone}</Typography>
-                        <Typography variant="body1">Gender: {user.gender}</Typography>
-                        <Typography variant="body1">Registered: {new Date(parseInt(user.registerDate)).toLocaleDateString()}</Typography>
-                        {user.location && (
-                            <div>
-                                <Typography variant="body1">Street: {user.location.street}</Typography>
-                                <Typography variant="body1">City: {user.location.city}</Typography>
-                                <Typography variant="body1">State: {user.location.state}</Typography>
-                                <Typography variant="body1">Country: {user.location.country}</Typography>
-                                <Typography variant="body1">Timezone: {user.location.timezone}</Typography>
-                            </div>
-                        )}
-                    </Grid>
-                </Grid>
-                <Button className={classes.button} onClick={() => handleOpenEditDialog(user)} variant="contained" color="primary">
-                    Edit
-                </Button>
-                <Button className={classes.button} onClick={() => handleDelete(user.id)} variant="contained" color="secondary">
-                    Delete
-                </Button>
-            </Paper>
-            {selectedUser && (
-                <EditUserForm user={selectedUser} open={openEditDialog} onClose={handleCloseEditDialog} />
-            )}
-            <Typography variant="h5">Posts:</Typography>
-            {user.posts.map(post => (
-                <Card key={post.id} className={classes.postCard}>
-                    {post.image && (
-                        <CardMedia
-                            component="img"
-                            image={post.image}
-                            alt="Post"
-                            className={classes.postImage}
-                        />
-                    )}
-                    <CardContent>
-                        <Typography variant="h6">{post.text}</Typography>
-                        <Typography variant="subtitle2">Published: {new Date(parseInt(post.publishDate)).toLocaleDateString()}</Typography>
-                        {/* Display post link and other details */}
-                        <Divider />
-                        <List>
-                            <Typography>Comments</Typography>
-                            {post.comments.map(comment => (
-                                <ListItem key={comment.id} className={classes.commentItem}>
-
-                                    <Typography variant="body2">
-                                        {comment.owner.firstName}: {comment.message}
-                                    </Typography>
-                                </ListItem>
-                            ))}
-                        </List>
-                    </CardContent>
-                </Card>
-            ))}
-        </div>
-    );
-};
+      <div>
+          <Paper className={classes.userDetailsContainer}>
+              <Grid container spacing={3} alignItems="center">
+                  <Grid item>
+                      <Avatar src={user.picture} alt={`${user.firstName} ${user.lastName}`} className={classes.avatar} />
+                  </Grid>
+                  <Grid item xs>
+                      <div className={classes.profileInfo}>
+                          <Typography variant="h4" className={classes.userDetailsHeader}>{user.firstName} {user.lastName}</Typography>
+                          <Typography variant="body1">Email: {user.email}</Typography>
+                          <Typography variant="body1">Phone: {user.phone}</Typography>
+                          <Typography variant="body1">Gender: {user.gender}</Typography>
+                          <Typography variant="body1">Registered: {new Date(parseInt(user.registerDate)).toLocaleDateString()}</Typography>
+                          {user.location && (
+                              <div>
+                                  <Typography variant="body1">Street: {user.location.street}</Typography>
+                                  <Typography variant="body1">City: {user.location.city}</Typography>
+                                  <Typography variant="body1">State: {user.location.state}</Typography>
+                                  <Typography variant="body1">Country: {user.location.country}</Typography>
+                                  <Typography variant="body1">Timezone: {user.location.timezone}</Typography>
+                              </div>
+                          )}
+                      </div>
+                      <div className={classes.userActions}>
+                          <Button onClick={() => handleOpenEditDialog(user)} variant="contained" color="primary">
+                              Edit
+                          </Button>
+                          <Button onClick={() => handleDelete(user.id)} variant="contained" color="secondary">
+                              Delete
+                          </Button>
+                      </div>
+                  </Grid>
+              </Grid>
+          </Paper>
+  
+          <Typography variant="h5" className={classes.postSection}>Posts:</Typography>
+          {user.posts.map(post => (
+              <Card key={post.id} className={classes.postCard}>
+                  {post.image && (
+                      <CardMedia
+                          component="img"
+                          image={post.image}
+                          alt="Post"
+                          className={classes.postImage}
+                      />
+                  )}
+                  <CardContent>
+                      <Typography variant="h6">{post.text}</Typography>
+                      <Typography variant="subtitle2">Published: {new Date(parseInt(post.publishDate)).toLocaleDateString()}</Typography>
+                      <Divider />
+                      <List className={classes.commentList}>
+                          <Typography>Comments</Typography>
+                          {post.comments.map(comment => (
+                              <ListItem key={comment.id} className={classes.commentItem}>
+                                  <Typography variant="body2" className={classes.commentText}>
+                                      {comment.owner.firstName}: {comment.message}
+                                  </Typography>
+                              </ListItem>
+                          ))}
+                      </List>
+                  </CardContent>
+              </Card>
+          ))}
+          {selectedUser && (
+              <EditUserForm user={selectedUser} open={openEditDialog} onClose={handleCloseEditDialog} />
+          )}
+      </div>
+  );
+          }  
 
 export default UserDetails;
